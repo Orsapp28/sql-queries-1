@@ -1,1 +1,60 @@
+1. How many app users are there?
+ans: select count(*) from AppUser;
+ count 
+-------
+   481
 
+
+2. How many app users have a first name beginning with "R"?
+ans: select count(*) from AppUser where first_name ILIKe 'R%';
+ count 
+-------
+    26
+
+3. Who are the first 5 users sorted by last name?
+
+ans: select first_name, last_name  from appUser order by last_name ASC limit 5;
+ first_name | last_name 
+------------+-----------
+ Johnetta   | Abdallah
+ Geoffrey   | Acey
+ Weldon     | Acuff
+ Barbra     | Adkin
+ Fausto     | Agramonte
+
+4. What is the average mileage of a car?
+ans: select AVG(mileage) from Car;
+        avg         
+--------------------
+ 72029.615720524017
+
+5. What is the average mileage of a car with 3 or more previous owners?
+ans: select AVG(mileage) from Car where number_of_owners >= 3;
+        avg         
+--------------------
+ 70182.500000000000
+
+
+6. What is the average mileage of a car with 3 or more previous owners manufactured after 2008?
+ans: select AVG(mileage) from Car where number_of_owners >= 3 and manufacture_year > 2008;
+        avg         
+--------------------
+ 68845.413793103448
+
+7. How long is the longest model name?
+ans: select length(model) from CarModel order by length(model) desc limit 1;
+ length 
+--------
+     12
+
+8. How many users live in Chicago?
+ans: select count(city) from UserProfile where city ilike 'chicago';
+ count 
+-------
+     4
+
+9. How many users live in cities with the word "Park" in their name?
+ans: elect count(*) from UserProfile where city ilike '%park%';
+ count 
+-------
+     2
